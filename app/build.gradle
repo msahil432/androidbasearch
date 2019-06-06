@@ -1,0 +1,61 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.msahil432.basearchcomponents"
+        minSdkVersion 15
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    //noinspection GradleCompatible
+    implementation 'com.android.support:appcompat-v7:28.0.0-alpha3'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+
+    // ViewModel and LiveData
+    implementation "androidx.lifecycle:lifecycle-extensions:2.0.0-beta01"
+    annotationProcessor "androidx.lifecycle:lifecycle-compiler:2.0.0-beta01"
+    // alternately - if using Java8, use the following instead of lifecycle-compiler
+    implementation "androidx.lifecycle:lifecycle-common-java8:2.0.0-beta01"
+    // optional - Test helpers for LiveData
+    testImplementation "androidx.arch.core:core-testing:2.0.0-beta01"
+
+    // Room Database
+    implementation "androidx.room:room-runtime:2.0.0-beta01"
+    annotationProcessor "androidx.room:room-compiler:2.0.0-beta01"
+
+    // Paging Lib
+    implementation "androidx.paging:paging-runtime:2.0.0-beta01"
+
+    // Navigation Components
+    implementation "android.arch.navigation:navigation-fragment:1.0.0-alpha04"
+    implementation "android.arch.navigation:navigation-ui:1.0.0-alpha04"
+    // optional - Test helpers
+    androidTestImplementation "android.arch.navigation:navigation-testing:1.0.0-alpha04"
+
+    // Work Manager
+    implementation "android.arch.work:work-runtime:1.0.0-alpha04"
+    // optional - Firebase JobDispatcher support
+    implementation "android.arch.work:work-firebase:1.0.0-alpha04"
+    // optional - Test helpers
+    androidTestImplementation "android.arch.work:work-testing:1.0.0-alpha04"
+}
